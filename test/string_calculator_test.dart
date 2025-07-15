@@ -14,5 +14,9 @@ void main() {
     test('should return sum for two comma-separated numbers', () {
       expect(StringCalculator().add('1,5'), equals(6));
     });
+
+    test('should return sum for multiple comma-separated numbers', () {
+      expect(StringCalculator().add('1,2,3,4'), equals(10));
+    });
   });
 }
