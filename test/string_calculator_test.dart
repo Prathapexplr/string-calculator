@@ -22,5 +22,9 @@ void main() {
     test('should handle newlines between numbers', () {
       expect(StringCalculator().add('1\n2,3'), equals(6));
     });
+
+    test('should support custom delimiter defined in format //;\n1;2', () {
+      expect(StringCalculator().add('//;\n1;2'), equals(3));
+    });
   });
 }
