@@ -1,4 +1,3 @@
-
 # 🧮 String Calculator - TDD Kata (Dart)
 
 This is a simple string calculator implemented using **Test-Driven Development (TDD)** in Dart.  
