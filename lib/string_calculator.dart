@@ -5,7 +5,6 @@ class StringCalculator {
     String delimiter = ',';
     String input = numbers;
 
-    // Here Checking for custom delimiter format: "//;\n1;2"
     if (numbers.startsWith('//')) {
       final delimiterEndIndex = numbers.indexOf('\n');
       delimiter = numbers.substring(2, delimiterEndIndex);
@@ -13,8 +12,13 @@ class StringCalculator {
     }
 
     final tokens = input.split(RegExp('[${RegExp.escape(delimiter)}\n]'));
+    final parsed = tokens.map(int.parse).toList();
 
-    final sum = tokens.map(int.parse).reduce((a, b) => a + b);
-    return sum;
+    final negatives = parsed.where((n) => n < 0);
+    if (negatives.isNotEmpty) {
+      throw Exception('negative numbers not allowed ${negatives.first}');
+    }
+
+    return parsed.reduce((a, b) => a + b);
   }
 }
