@@ -10,5 +10,9 @@ void main() {
     test('should return number for single number input', () {
       expect(StringCalculator().add('1'), equals(1));
     });
+
+    test('should return sum for two comma-separated numbers', () {
+      expect(StringCalculator().add('1,5'), equals(6));
+    });
   });
 }
