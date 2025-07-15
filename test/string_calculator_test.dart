@@ -6,5 +6,9 @@ void main() {
     test('should return 0 for empty string', () {
       expect(StringCalculator().add(''), equals(0));
     });
+
+    test('should return number for single number input', () {
+      expect(StringCalculator().add('1'), equals(1));
+    });
   });
 }
