@@ -40,6 +40,18 @@ void main() {
       );
     });
 
+    test('should throw exception with all negative numbers listed', () {
+      expect(
+        () => StringCalculator().add('1,-2,3,-5'),
+        throwsA(
+          predicate(
+            (e) =>
+                e is Exception &&
+                e.toString().contains('negative numbers not allowed -2,-5'),
+          ),
+        ),
+      );
+    });
     
   });
 }

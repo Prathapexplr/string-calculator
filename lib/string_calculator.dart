@@ -14,9 +14,9 @@ class StringCalculator {
     final tokens = input.split(RegExp('[${RegExp.escape(delimiter)}\n]'));
     final parsed = tokens.map(int.parse).toList();
 
-    final negatives = parsed.where((n) => n < 0);
+    final negatives = parsed.where((n) => n < 0).toList();
     if (negatives.isNotEmpty) {
-      throw Exception('negative numbers not allowed ${negatives.first}');
+      throw Exception('negative numbers not allowed ${negatives.join(',')}');
     }
 
     return parsed.reduce((a, b) => a + b);
